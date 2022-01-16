@@ -121,22 +121,25 @@ function iap_attach_gutenberg_blocks() {
         
         -> set_render_callback( function( $fields, $attributes, $inner_blocks ) { ?>
             <div class="hero-big">
-        <div class="container">
-            <div class="hero-inner">
-    
-                <div class="hero-content">
-                    <h2 class="hero-title"><?= $fields['iap_hero_title'] ?></h2>
-                    <p class="hero-big-description"><?= $fields['iap_hero_description'] ?></p>
-                    <a href="<?= $fields['iap_hero_button_url']?>" class="button-hero-big"><?=$fields['iap_hero_button_text']?></a>
+                <div class="container">
+                    <div class="hero-inner">
+            
+                        <div class="hero-content">
+                            <h2 class="hero-title"><?= $fields['iap_hero_title'] ?></h2>
+                            <p class="hero-big-description"><?= $fields['iap_hero_description'] ?></p>
+                            <a href="#" class="button-hero-big"><?=$fields['iap_hero_button_text']?></a>
+                        </div>
+            
+                        <div class="hero-image">
+                            <?= wp_get_attachment_image( $fields['iap_hero_image'], 'full' ); ?>    
+                        </div>
+                    </div>
                 </div>
-    
-                <div class="hero-image">
-                    <?= wp_get_attachment_image( $fields['iap_hero_image'], 'full' ); ?>    
-                </div>
-        </div>
+            </div>
     <?php
     });
 	
+  
 	Block::make('My Section')
         -> add_fields([
             Field::make( 'text', 'iap_section_title', __( 'Title' ) ),
@@ -156,31 +159,33 @@ function iap_attach_gutenberg_blocks() {
             <div class="section">
                 <div class="container">
                     <div class="section-inner">
-                        <h2 class="section-title"><?= $fields['iap_section_title'] ?></h2>
-                        <p class="section-intro"><?= $fields['iap_section_description'] ?></p>
+                        <div class="section-content">
+                            <h2 class="section-title"><?= $fields['iap_section_title'] ?></h2>
+                            <p class="section-intro"><?= $fields['iap_section_description'] ?></p>
 
-                        <?php if($fields['iap_section_cards']): ?>
-                            <div class="cards">
-                                <?php foreach($fields['iap_section_cards'] as $field): ?>
-                                    <div class="card-wrap">
-                                        <div class="card">
-                                            <div class="card-image"><?= wp_get_attachment_image( $field['iap_section_card_image'], 'full' ); ?></div>
-                                            <h3 class="card-title"><?= $field['iap_section_card_title'] ?></h3>
-                                            <p class="card-description"><?= $field['iap_section_card_description'] ?></p>
-                                        </div>
-                                    </div>    
-                                <?php endforeach ?>
+                            <?php if($fields['iap_section_cards']): ?>
+                                <div class="cards">
+                                    <?php foreach($fields['iap_section_cards'] as $field): ?>
+                                        <div class="card-wrap">
+                                            <div class="card">
+                                                <div class="card-image"><?= wp_get_attachment_image( $field['iap_section_card_image'], 'full' ); ?></div>
+                                                <h3 class="card-title"><?= $field['iap_section_card_title'] ?></h3>
+                                                <p class="card-description"><?= $field['iap_section_card_description'] ?></p>
+                                            </div>
+                                        </div>    
+                                    <?php endforeach ?>
 
-                            </div>
-                        <?php endif ?>
+                                </div>
+                            <?php endif ?>
 
-                    <a href="<?= $fields['iap_hero_button_url2']?>" class="button-section"><?=$fields['iap_hero_button_text2']?></a>
+                            <a href="<?= $fields['iap_hero_button_url2']?>" class="button-section"><?=$fields['iap_hero_button_text2']?></a>
+                        </div>
                     </div>
                 </div>
             </div>
 		<?php
 	});
-
+        
 
     Block::make('My Hero Providers')
         -> add_fields([
@@ -197,12 +202,13 @@ function iap_attach_gutenberg_blocks() {
                     <div class="hero-inner">
 
                         <div class="hero-image">
-                        <?= wp_get_attachment_image( $fields['iap_hero_providers_image'], 'full' ); ?> 
+                            <?= wp_get_attachment_image( $fields['iap_hero_providers_image'], 'full' ); ?> 
                         </div>
 
                         <div class="hero-content">
-                            <h2 class="hero-title"><?= $field['iap_hero_providers_title'] ?></h2>
-                            <p class="hero-providers-description"><?= $field['iap_hero_providers_description'] ?></p>
+                            <h2 class="hero-title"><?= $fields['iap_hero_providers_title'] ?></h2>
+                            <p class="hero-providers-description"><?= $fields['iap_hero_providers_description'] ?></p>
+
                             <a href="<?= $fields['iap_hero_button_url3']?>" class="button-hero-providers"><?=$fields['iap_hero_button_text3']?></a>
                         </div>
 
@@ -210,10 +216,10 @@ function iap_attach_gutenberg_blocks() {
                 </div>
             </div>
         <?php
-    });
+         });
 
-
-    Block::make('My Hero Apps')
+    
+    Block::make('My Apps')
         -> add_fields([
             Field::make('text', 'iap_apps_title', __( 'Title' )),
             Field::make('rich_text', 'iap_apps_description', __( 'Content' )),
@@ -228,9 +234,9 @@ function iap_attach_gutenberg_blocks() {
                     <div class="hero-inner">
 
                         <div class="hero-content">
-                            <h2 class="hero-title"><?= $field['iap_apps_title'] ?></h2>
-                            <p class="hero-apps-description"><?= $field['iap_apps_description'] ?></p>
-                            <a href="<?= $fields['iap_hero_button_url']?>" class="button-hero-apps"><?=$fields['iap_hero_button_text']?></a>
+                            <h2 class="hero-title"><?= $fields['iap_apps_title'] ?></h2>
+                            <p class="hero-apps-description"><?= $fields['iap_apps_description'] ?></p>
+                            <a href="<?= $fields['iap_apps_button_url']?>" class="button-hero-apps"><?=$fields['iap_apps_button_text']?></a>
                         </div>
 
                         <div class="hero-image">
@@ -244,16 +250,15 @@ function iap_attach_gutenberg_blocks() {
         });
 
 
-        Block::make('My Testimonials')
+    Block::make('My Testimonials')
         -> add_fields([
             Field::make('text', 'iap_testimonials_title', __( 'Title' )),
             Field::make( 'image', 'iap_testimonials_image', __( 'Imagine' ) ),
-            Field::make( 'image', 'iap_testimonials_name', __( 'Name' ) ),
-            Field::make( 'image', 'iap_testimonials_function', __( 'Function' ) ),
+            Field::make( 'text', 'iap_testimonials_name', __( 'Name' ) ),
+            Field::make( 'text', 'iap_testimonials_function', __( 'Function' ) ),
             Field::make('rich_text', 'iap_testimonials_description', __( 'Content' )),
-            Field::make('text', 'iap_testimonials_button_text', __( 'Button' )),
             Field::make('text', 'iap_testimonials_button_url', __( 'Url' )),
-      
+            Field::make( 'image', 'iap_testimonials_button_image', __( 'Image' ) ),
         ])
 
         -> set_render_callback( function( $fields, $attributes, $inner_blocks ) { ?>
@@ -265,7 +270,7 @@ function iap_attach_gutenberg_blocks() {
                         <div class="testimonials-content">
                             <div class="testimonials-about">
                                 <div class="testimonials-image">
-                                <?= wp_get_attachment_image( $fields['iap_testimonials_image'], 'full' ); ?>
+                                    <?= wp_get_attachment_image( $fields['iap_testimonials_image'], 'full' ); ?>
                                 </div>
 
                                 <div class="testimonials-text">
@@ -277,62 +282,73 @@ function iap_attach_gutenberg_blocks() {
                             <div class="testimonials-description"><?= $fields['iap_testimonials_description'] ?></div>
                         </div>
                     </div>
-                    <a href="<?= $fields['iap_testimonials_button_url']?>" class="hero-arrow"><?=$fields['iap_testimonials_button_text']?></a>
-                    </div>
+                    <a href="<?= $fields['iap_testimonials_button_url']?>" class="hero-arrow"><?= wp_get_attachment_image( $fields['iap_testimonials_button_image'], 'full' ); ?></a>
+                    
+                </div>
             </div>
         <?php
-    });
-           
+        });
+
     Block::make('My Article')
-        -> add_fields([
-            Field::make( 'text', 'iap_article_title', __( 'Title' ) ),
-            Field::make( 'text', 'iap_article_description', __( 'Text' ) ),
-            Field::make('text', 'iap_article_button_text', __( 'Button' )),
-            Field::make('text', 'iap_article_button_url', __( 'Url' )),
-            Field::make( 'complex', 'iap_article_cards', __( 'Cards' ) )
-                -> add_fields([
-                    Field::make( 'image', 'iap_article_card_image', __( 'Image' ) ),
-                    Field::make( 'text', 'iap_article_card_title', __( 'Title' ) ),
-                    Field::make( 'text', 'iap_article_card_description', __( 'Text' ) )
-                ]),
-            
-        ])
-             
-        -> set_render_callback( function( $fields, $attributes, $inner_blocks ) { ?>
-            <div class="article">
-                <div class="container">
-                    <div class="article-inner">
-                        <div class="article-content">
-                            <h2 class="article-title"><?= $fields['iap_article_title'] ?></h2>
-                                <div class="article-cards">   
-                                    <?php if($fields['iap_article_cards']): ?>
-                                        <div class="cards">
-                                            <?php foreach($fields['iap_article_cards'] as $field): ?>
-                                                <div class="article-card-wrap">
-                                                    <div class="article-card">
-                                                        <div class="article-card-image"><?= wp_get_attachment_image( $field['iap_article_card_image'], 'full' ); ?></div>
-                                                        <h3 class="article-card-title"><?= $field['iap_article_card_title'] ?></h3>
-                                                        <p class="article-card-description"><?= $field['iap_article_card_description'] ?></p>
-                                                        <a href="<?= $fields['iap_article__button_url']?>" class="button-article"><?=$fields['iap_article__button_text']?></a>
-                                                    </div>
-                                                </div>    
-                                            <?php endforeach ?>
+    -> add_fields([
+        Field::make( 'text', 'iap_article_title', __( 'Title' ) ),
+        Field::make( 'complex', 'iap_article_cards', __( 'Cards' ) ) 
+            -> add_fields([
+                Field::make( 'image', 'iap_article_card_image', __( 'Image' ) ),
+                Field::make( 'text', 'iap_article_card_title', __( 'Title' ) ),
+                Field::make( 'text', 'iap_article_card_description', __( 'Text' ) ),
+                Field::make('text', 'iap_article_button_url', __( 'Url' )) ,
+                Field::make('text', 'iap_article_button_text', __( 'Button' )),
+                Field::make( 'image', 'iap_article_button_image', __( 'Image' ) )
+            ]),
 
+        Field::make('text', 'iap_article_button_url2', __( 'Url' )) ,
+        Field::make('text', 'iap_article_button_text2', __( 'Button' ))
+    ])
+         
+    -> set_render_callback( function( $fields, $attributes, $inner_blocks ) { ?>
+        <div class="article">
+            <div class="container">
+                <div class="article-inner">
+                    <div class="article-content">
+                        <h2 class="article-title"><?= $fields['iap_article_title'] ?></h2>
+                        <?php if($fields['iap_article_cards']): ?>
+                        
+                            <div class="article-cards">
+                                <?php foreach($fields['iap_article_cards'] as $field): ?>   
+                                    <div class="article-card-wrap">                                
+                                        <div class="article-card">
+                                            <div class="article-card-image"><?= wp_get_attachment_image( $field['iap_article_card_image'], 'full' ); ?></div>
+                                            <h3 class="article-card-title"><?= $field['iap_article_card_title'] ?></h3>
+                                            <p class="article-card-description"><?= $field['iap_article_card_description'] ?></p>
+                                            <a href="<?= $field['iap_article_button_url']?>" class="button-article"><?=$field['iap_article_button_text']?><?= wp_get_attachment_image( $field['iap_article_button_image'], 'full' ); ?></a>
                                         </div>
-                                    <?php endif ?>
-                                </div>
-                                <a href="<?= $fields['iap_article__button_url']?>" class="button-article2"><?=$fields['iap_article__button_text']?></a>
-                            </div>  
-                    </div>                                                 
-                </div>
-            </div>  
-        <?php
+                                    </div>
+                                <?php endforeach ?>   
+                            </div>
+                        <?php endif ?>  
+
+                        <?php if ($fields['iap_article_button_url2']): ?> 
+                                    <a href="<?= $fields['iap_article_button_url2']?>" class="button-article2"><?=$fields['iap_article_button_text2']?></a>
+                                <?php else: ?> 
+                                    <span class="button-article2"><?=$fields['iap_article_button_text2']?></span>
+                        <?php endif ?>
+
+                    
+                    </div>  
+                </div>                                                 
+            </div>
+        </div>  
+    <?php         
+           
     });
-                   
-            
-     
+
 }
-
 add_action('carbon_fields_register_fields', 'iap_attach_gutenberg_blocks' ); 
+   
+        
+                
+                
+                
 
-
+                   

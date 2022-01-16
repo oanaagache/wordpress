@@ -1,6 +1,8 @@
 <?php get_header() ?>
 
-<?php the_content() ?>
+<div>
+fsdfsdfs
+</div>
 
 <?php get_footer() ?>
 

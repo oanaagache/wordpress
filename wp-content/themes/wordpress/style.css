@@ -16,7 +16,7 @@
   display: block;
   width: 100%;
   max-width: 1490px;
-  margin: 0 auto; /* se centreaza */
+  margin: 0 auto; /* center */
   font-family: 'Mulish',sans-serif;
 }
 
@@ -35,7 +35,7 @@ h3 {
   font-size: 18px;
   text-decoration: none; 
   border: 2px solid #458FF6;
-  /*transition: background-color .2s;  /* ????  */
+  /*transition: background-color .2s;  
   font-weight: bold;
 }
 
@@ -72,6 +72,7 @@ h3 {
   padding: 56px 50px 163px 20px; 
 }  
 
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -97,7 +98,7 @@ h3 {
 .header-menu {
   margin-left: auto; 
   display: flex;
-  list-style: none; /* nu am nevoie de bullets */ 
+  list-style: none; /* no bullets */ 
 }
 
 .header-menu li {
@@ -117,7 +118,7 @@ h3 {
   font-weight: bold;
 }
 
-.header-menu li.is-active a { /* se aplica pe li */
+.header-menu li.is-active a { /*  li */
   font-weight: bold;
 }
 
@@ -129,13 +130,13 @@ h3 {
 }
 
 .hero-image { 
-  flex: 1; /* se intinde pe cat spatiu  disponibil are , width de 50 %    */
-  margin-left: 55px; /* se intinde pe 50 %  110 */
+  flex: 1; 
+  margin-left: 55px; /*  50 % from 110px */
 } 
 
 .hero-content { 
-  margin-right: 55px; /* se intinde pe 50 %   */
-  flex: 1; /* se intinde pe cat spatiu  disponibil are , width de 50 %    */
+  margin-right: 55px; /*  50 % from 110px */
+  flex: 1; 
 }
 
 .hero-title {
@@ -180,7 +181,7 @@ h3 {
 .cards {
   display: flex;
   flex-wrap: wrap;
-  margin: 80px -17px 0; /*padding nu cu 0*/ 
+  margin: 80px -17px 0; 
 }
 
 .card-wrap {
@@ -220,6 +221,7 @@ vertical-align: top;
   margin: 5px 40px 45px 40px;
 }
 
+
 /* Line section */
 
 .section-title:after {
@@ -238,7 +240,7 @@ vertical-align: top;
   text-align: center;
   color: #7D7987;
   max-width: 952px;
-  margin: 0 auto; /* se centreaza */
+  margin: 0 auto; /* center */
 }
 
 .section-inner > img { /* the child selector > selects all img elements that are the children of a specified element. */
@@ -406,6 +408,7 @@ img{
   transform: translateX(-50%);
 }
 
+
 .hero-arrow{
   display: inline-block;
   margin: 46px 520px;
@@ -415,13 +418,26 @@ img{
 
 /* Cards-article*/
 
-
 .article-title {
   position: relative;
   text-align: center;
   font-size: 36px;
   font-weight: bold;
   margin: 220px 0 107px 0;
+}
+
+/* Line article  */
+
+.article-title:after{
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 56px;
+  height: 2px;
+  background-color: #000000;
+  bottom:-26px;
+  left: 50%; 
+  transform: translateX(-50%);
 }
 
 .article-cards {
@@ -506,7 +522,6 @@ img{
 }
 
 
-
 .footer-inner { 
   display: flex;
   /*flex-wrap: wrap;*/
@@ -577,6 +592,9 @@ img{
 .arr{
   margin: 31px 0 113px 0;
 }
+
+
+
 
 
 
