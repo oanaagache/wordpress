@@ -93,8 +93,7 @@
 
             <div class="hero-content">
                 <h2 class="hero-title">Leading healthcare providers</h2>
-                <p class="hero-providers-description">Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone. To us, it’s not just work. We take pride 
-                in the solutions we deliver.</p>
+                <p class="hero-providers-description">Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone. To us, it’s not just work. We take pride in the solutions we deliver.</p>
                 <a href="#" class="button-hero-providers">Learn more</a>
             </div>
 

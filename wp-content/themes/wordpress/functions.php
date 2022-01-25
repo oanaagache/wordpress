@@ -81,6 +81,9 @@ function iap_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+
+ 
+
 }
 
 add_action( 'widgets_init', 'iap_widgets_init' );
@@ -127,7 +130,8 @@ function iap_attach_gutenberg_blocks() {
                         <div class="hero-content">
                             <h2 class="hero-title"><?= $fields['iap_hero_title'] ?></h2>
                             <p class="hero-big-description"><?= $fields['iap_hero_description'] ?></p>
-                            <a href="#" class="button-hero-big"><?=$fields['iap_hero_button_text']?></a>
+                            <a href="<?= $fields['iap_hero_button_url'] ?>" class="button-hero-big"><?=$fields['iap_hero_button_text']?></a>
+                            
                         </div>
             
                         <div class="hero-image">
@@ -223,8 +227,8 @@ function iap_attach_gutenberg_blocks() {
         -> add_fields([
             Field::make('text', 'iap_apps_title', __( 'Title' )),
             Field::make('rich_text', 'iap_apps_description', __( 'Content' )),
-            Field::make('text', 'iap_apps_button_text', __( 'Button' )),
             Field::make('text', 'iap_apps_button_url', __( 'Url' )),
+            Field::make('text', 'iap_apps_button_text', __( 'Button' )),
             Field::make( 'image', 'iap_apps_image', __( 'Imagine' ) ),
         ])
     
@@ -349,6 +353,4 @@ add_action('carbon_fields_register_fields', 'iap_attach_gutenberg_blocks' );
         
                 
                 
-                
-
-                   
+  
